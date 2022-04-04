@@ -5,6 +5,5 @@ transformers==4.16.2
 nltk
 spacy
 tensorflow
-bs4
+beautifulsoup4
 https://huggingface.co/spacy/en_core_web_sm/resolve/main/en_core_web_sm-any-py3-none-any.whl
-

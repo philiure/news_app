@@ -95,7 +95,7 @@ def show_predict_page():
     ''')
     with st.expander("Example News Article", expanded=False):
         st.markdown('''
-    ### Example Article 
+    ### Copy & paste this entire article below 
 (source: https://www.reuters.com/world/americas/costa-ricans-choose-between-outsider-former-leader-presidential-vote-2022-04-03/)
 
 Costa Ricans are casting their ballots in a run-off election Sunday, choosing between an anti-establishment outsider and former leader to be the next head of the Central American country as it grapples with debt woes and social discontent.
@@ -135,10 +135,9 @@ Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. 
     article_input = st.text_area(
         'News Article', placeholder='Insert text here')
     
+    st.write('It might take some time, but try it out:')
     run = st.button('Test!')
 
-    if run:
-        st.spinner('Wait for it...')
 
     if run:
         article = text_preprocessing(article_input)

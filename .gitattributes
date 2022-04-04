@@ -2,3 +2,4 @@
 *..data-00000-of-00001 filter=lfs diff=lfs merge=lfs -text
 LSTMmodel/variables/variables.data-00000-of-00001 filter=lfs diff=lfs merge=lfs -text
 LSTMmodel/variables/variables.index filter=lfs diff=lfs merge=lfs -text
+LSTMmodel/** filter=lfs diff=lfs merge=lfs -text

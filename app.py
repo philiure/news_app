@@ -138,6 +138,9 @@ Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. 
     run = st.button('Test!')
 
     if run:
+        st.spinner('Wait for it...')
+
+    if run:
         article = text_preprocessing(article_input)
         # loading
         tokenizer = pickle.load(open('tokenizer.pickle', 'rb'))
@@ -182,11 +185,13 @@ Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. 
         if prediction > 0:
             st.write(f'Assigned label: {int(prediction)}')
             st.write('According to this LSTM model, this might be fake news...')
-            st.balloons()
+            st.warning('This might be fake news!')
+            st.snow()
         else:
             st.write(f'Label: {int(prediction)}')
             st.write('According to this LSTM model this article seems to contain real news!')
-            st.warning('This might be fake news!')
+            st.warning('This might be real news!')
+            st.balloons()
         
 
 

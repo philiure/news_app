@@ -22,6 +22,9 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 from preprocessing import text_preprocessing
 
+import nltk
+nltk.download('stopwords')
+
 vader_model = SentimentIntensityAnalyzer()
 nlp = spacy.load('en_core_web_sm')
 model = tf.keras.models.load_model('LSTMmodel')

@@ -84,9 +84,6 @@ assert vader_output_to_label(
     {'neg': 0.0, 'neu': 0.0, 'pos': 1.0, 'compound': -0.01}) == 'negative'
 
 
-
-
-
 def show_predict_page():
     st.title("Fake News Tester - Text Mining Project")
 
@@ -131,13 +128,12 @@ Costa Rica agreed in January 2021 to $1.78 billion in financial assistance from 
 Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. (0000 GMT Monday). The first results are expected after 8 p.m. local time from the headquarters of the Supreme Electoral Tribunal.
 
     ''')
-    
+
     article_input = st.text_area(
         'News Article', placeholder='Insert text here')
-    
+
     st.write('It might take some time, but try it out:')
     run = st.button('Test!')
-
 
     if run:
         article = text_preprocessing(article_input)
@@ -146,15 +142,14 @@ Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. 
 
         text = tokenizer.texts_to_sequences([article])
 
-        input_text =pad_sequences(text,padding='post', maxlen=400)
-
+        input_text = pad_sequences(text, padding='post', maxlen=400)
 
         model = keras.models.load_model('./LSTMmodel')
 
-        pred=model.predict(input_text)
+        pred = model.predict(input_text)
 
-        pred[pred>0.5]=1 
-        pred[pred<=0.5]=0 
+        pred[pred > 0.5] = 1
+        pred[pred <= 0.5] = 0
 
         prediction = pred.tolist()[0][0]
 
@@ -188,11 +183,10 @@ Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. 
             st.snow()
         else:
             st.write(f'Label: {int(prediction)}')
-            st.write('According to this LSTM model this article seems to contain real news!')
+            st.write(
+                'According to this LSTM model this article seems to contain real news!')
             st.warning('This might be real news!')
             st.balloons()
-        
-
 
 
 show_predict_page()

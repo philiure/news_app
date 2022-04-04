@@ -22,6 +22,7 @@ from preprocessing import text_preprocessing
 
 nltk.download('vader_lexicon')
 
+
 vader_model = SentimentIntensityAnalyzer()
 nlp = spacy.load('en_core_web_sm')
 model = tf.keras.models.load_model('LSTMmodel')

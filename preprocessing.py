@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import re
 
 nltk.download('stopwords')
+nltk.download('wordnet')
 
 stop_words = set(stopwords.words("english"))
 lemmatizer = WordNetLemmatizer()

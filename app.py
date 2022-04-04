@@ -12,18 +12,13 @@ from tensorflow import keras
 import nltk
 import re
 from bs4 import BeautifulSoup
-from nltk.corpus import stopwords
-from nltk.corpus import wordnet
-from nltk.corpus import stopwords
+from nltk.corpus import wordnet, stopwords
 from nltk.stem import WordNetLemmatizer
 import pickle
 from keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 from preprocessing import text_preprocessing
-
-import nltk
-nltk.download('stopwords')
 
 vader_model = SentimentIntensityAnalyzer()
 nlp = spacy.load('en_core_web_sm')

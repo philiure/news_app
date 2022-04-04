@@ -1,0 +1,9 @@
+numpy
+requests==2.27.1
+streamlit==1.7.0
+transformers==4.16.2
+nltk
+spacy
+tensorflow
+https://huggingface.co/spacy/en_core_web_sm/resolve/main/en_core_web_sm-any-py3-none-any.whl
+

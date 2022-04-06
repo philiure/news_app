@@ -1,7 +1,9 @@
+from lib2to3.pgen2 import token
 import streamlit as st
 import numpy as np
 from transformers import tf_top_k_top_p_filtering
 from transformers.pipelines import pipeline
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForSequenceClassification
 import tensorflow as tf
 from tensorflow import keras
 import re
@@ -153,8 +155,16 @@ Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. 
 
         prediction = pred.tolist()[0][0]
 
-        summarizer = pipeline(model="google/pegasus-cnn_dailymail")
-        sentimentizer = pipeline(model="siebert/sentiment-roberta-large-english")
+        tokenizer_sum = AutoTokenizer.from_pretrained(
+            "google/pegasus-cnn_dailymail")
+        model_sum = AutoModelForSeq2SeqLM.from_pretrained(
+            "google/pegasus-cnn_dailymail")
+        tokenizer_sen = AutoTokenizer.from_pretrained(
+            "siebert/sentiment-roberta-large-english")
+        model_sen = AutoModelForSequenceClassification.from_pretrained(
+            "siebert/sentiment-roberta-large-english")
+        summarizer = pipeline(model=model_sum, tokenizer=tokenizer_sum)
+        sentimentizer = pipeline(model=model_sen, tokenizer=tokenizer_sen)
 
         summary = summarizer(article_input, truncation=True)
         sentiment = sentimentizer(article_input, truncation=True)

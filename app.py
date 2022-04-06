@@ -155,12 +155,12 @@ Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. 
 
         prediction = pred.tolist()[0][0]
 
-        tokenizer_sen = AutoTokenizer.from_pretrained(
-            "siebert/sentiment-roberta-large-english")
-        model_sen = AutoModelForSequenceClassification.from_pretrained(
-            "siebert/sentiment-roberta-large-english")
+        # tokenizer_sen = AutoTokenizer.from_pretrained(
+        #     "siebert/sentiment-roberta-large-english")
+        # model_sen = AutoModelForSequenceClassification.from_pretrained(
+        #     "siebert/sentiment-roberta-large-english")
         summarizer = pipeline('summarization')
-        sentimentizer = pipeline(model=model_sen, tokenizer=tokenizer_sen)
+        sentimentizer = pipeline('sentiment-analysis')
 
         summary = summarizer(article_input, truncation=True)
         sentiment = sentimentizer(article_input, truncation=True)

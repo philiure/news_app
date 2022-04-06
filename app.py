@@ -159,7 +159,7 @@ Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. 
             "siebert/sentiment-roberta-large-english")
         model_sen = AutoModelForSequenceClassification.from_pretrained(
             "siebert/sentiment-roberta-large-english")
-        summarizer = pipeline('summarization',model="sshleifer/distilbart-cnn-12-6")
+        summarizer = pipeline('summarization')
         sentimentizer = pipeline(model=model_sen, tokenizer=tokenizer_sen)
 
         summary = summarizer(article_input, truncation=True)

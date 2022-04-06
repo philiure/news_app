@@ -153,8 +153,8 @@ Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. 
 
         prediction = pred.tolist()[0][0]
 
-        summarizer = pipeline(model="pegasus-cnn_dailymail")
-        sentimentizer = pipeline(model="siebert/sentiment-roberta-large-english")
+        summarizer = pipeline('summarization',model="pegasus-cnn_dailymail")
+        sentimentizer = pipeline('sentiment-analysis', model="siebert/sentiment-roberta-large-english")
 
         summary = summarizer(article_input, truncation=True)
         sentiment = sentimentizer(article_input, truncation=True)

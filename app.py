@@ -155,10 +155,10 @@ Polling centers opened at 6 a.m. local time (1200 GMT) and will close at 6 p.m. 
 
         prediction = pred.tolist()[0][0]
 
-        tokenizer_sum = AutoTokenizer.from_pretrained(
-            "google/pegasus-cnn_dailymail")
-        model_sum = AutoModelForSeq2SeqLM.from_pretrained(
-            "google/pegasus-cnn_dailymail")
+        tokenizer_sum = AutoTokenizer.from_pretrained("sshleifer/distilbart-cnn-12-6")
+
+        model_sum = AutoModelForSeq2SeqLM.from_pretrained("sshleifer/distilbart-cnn-12-6")
+        
         tokenizer_sen = AutoTokenizer.from_pretrained(
             "siebert/sentiment-roberta-large-english")
         model_sen = AutoModelForSequenceClassification.from_pretrained(
